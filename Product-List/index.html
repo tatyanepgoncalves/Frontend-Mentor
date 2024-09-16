@@ -4,45 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
   <title>Product List</title>
 </head>
 <body>
-
-  <header>
-    <h1>Desserts</h1>
   
-    <div class="cart">
-      <button id="cart-btn">
-        Cart
-        (<span id="cart-count">0</span>)
+  <div id="app">
+
+    <header>
+      <h1>Desserts</h1>
+    </header>
+    
+    <main>
+      <section id="product-list"></section>
+
+      <section id="cart">
+        <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+
+        <ul id="cart-items"></ul>
+
+        <div id="cart-summary">
+          <p>
+            Order Total: 
+          </p>
+          <span id="cart-total">$ 0.00</span>
+
+          <p>
+            <img src="assets/images/icon-carbon-neutral.svg" alt="carbon">
+            This is a <strong>carbon-neutral</strong> delivery
+          </p>
+
+          <button id="confirm-order">Confirm Order</button>
+          
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="order-confirm-modal" class="hidden">
+    <header>
+      <div>
+        <img src="assets/images/icon-order-confirmed.svg" alt="Icon Confirmed">
+        <h2>Order Confirmed</h2>
+        <p>We hope you enjoy your food!</p>
+      </div>
+      <button id="close-modal">
+        <img src="assets/images/icon-remove-item.svg" alt="">
       </button>
-    </div>
-  </header>
+    </header>
 
-  <main>
+    <ul id="modal-list"></ul>
 
-    <div class="product-list">
-      
-    </div>
-
-    <div class="cart-modal" id="cart-modal">
-      <h2>Your Cart</h2>
-      <ul id="cart-items"></ul>
-
-      <p>
-        Total:
-        $ <span id="cart-modal">0.00</span>
-      </p>
-
-      <button id="btn-confirm">
-        Confirm Order
-        <img src="assets/images/icon-order-confirmed.svg" alt="">
-      </button>
+    <div class="price-total">
+      <p>Order Total</p>
+      <span id="cart-total">$ 0.00</span>
     </div>
 
+    <button id="new-order">
+      Start New Order
+    </button>
    
-  </main>
-  
+  </div>
   
   <script src="assets/js/index.js"></script>
 </body>
