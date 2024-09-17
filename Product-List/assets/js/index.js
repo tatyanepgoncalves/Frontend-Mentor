@@ -119,7 +119,7 @@ products.forEach((product, index) => {
     productDiv.classList.add('product');
     productDiv.innerHTML = `
         <img src="${product.image.mobile}" alt="${product.name}">
-        <p>${product.category}</p>
+        <span>${product.category}</span>
         <h3>${product.name}</h3>
         <p>$${product.price.toFixed(2)}</p>
         <button data-index="${index}" class="add-to-cart">
@@ -150,45 +150,101 @@ function addToCart(product) {
 
 // Atualizar UI do carrinho
 function updateCartUI() {
-    const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = '';
-    let total = 0;
+  const cartItems = document.getElementById('cart-items');
+  cartItems.innerHTML = '';
+  let total = 0;
 
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            ${item.name} - 
-            ${item.quantity}x 
-            $${item.price.toFixed(2)} 
-            
-            <button class="decrement-item" data-name="${item.name}">-</button>
-            <button class="increment-item" data-name="${item.name}">+</button>
-        `;
-        cartItems.appendChild(li);
-        total += item.price * item.quantity;
-    });
+  cart.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+      <div class="id-items">
+          <h3>${item.name}</h3>
+          <div>
+            <span>${item.quantity}x</span>
+            <p>$ ${item.price.toFixed(2)}</p>
+          </div>
+        </div>
+        <div class="btn-items">
+          <button class="decrement-item" data-name="${item.name}">
+            <img src="assets/images/icon-decrement-quantity.svg" alt="Icon Decrement Quantity">
+          </button>
+          <button class="increment-item" data-name="${item.name}">
+            <img src="assets/images/icon-increment-quantity.svg" alt="Icon Increment Quantity">
+          </button>
+        </div>
+      `;
+      cartItems.appendChild(li);
+      total += item.price * item.quantity;
+  });
+ 
+  document.getElementById('cart-total').textContent = total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  
+  document.querySelectorAll('.increment-item').forEach(button => {
+      button.addEventListener('click', (e) => {
+          const productName = e.target.getAttribute('data-name');
+          incrementQuantity(productName);
+      });
+  });
 
-   
-    document.getElementById('cart-total').textContent = total.toFixed(2);
+  document.querySelectorAll('.decrement-item').forEach(button => {
+      button.addEventListener('click', (e) => {
+          const productName = e.target.getAttribute('data-name');
+          decrementQuantity(productName);
+      });
+  });
+
+  const modalList = document.getElementById("modal-list");
+  modalList.innerHTML = "";
+  let modalTotal = 0;
+
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <div class="modal-item-list">
+        <div class="id-item">
+            <img src="${item.image.thumbnail}" alt="${item.name}">
+            <div class="id-items">
+                <h3>${item.name}</h3>
+                <div>
+                  <span>${item.quantity}x</span>
+                  <p>$ ${item.price.toFixed(2)}</p>
+                </div>
+              </div>
+        </div>
+          <div class="btn-items">
+            <button class="decrement-item" data-name="${item.name}">
+              <img src="assets/images/icon-decrement-quantity.svg" alt="Icon Decrement Quantity">
+            </button>
+            <button class="increment-item" data-name="${item.name}">
+              <img src="assets/images/icon-increment-quantity.svg" alt="Icon Increment Quantity">
+            </button>
+          </div>
+      </div>
+    `;
+    modalList.appendChild(li);
+    modalTotal += item.price * item.quantity;
+  });
+
+  document.getElementById("modal-total").textContent = total.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     
-
-    // Adicionar eventos para incrementar e decrementar
-    document.querySelectorAll('.increment-item').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productName = e.target.getAttribute('data-name');
-            incrementQuantity(productName);
-        });
+  // Add and remove modal
+  document.querySelectorAll("#modal-list .increment-item").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const productName = e.target.getAttribute("data-name");
+      incrementQuantity(productName)
     });
-
-    document.querySelectorAll('.decrement-item').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productName = e.target.getAttribute('data-name');
-            decrementQuantity(productName);
-        });
+  });
+  
+  document.querySelectorAll("#modal-list .decrement-item").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const productName = e.target.getAttribute("data-name");
+      decrementQuantity(productName)
     });
+  });
 }
 
-// Função para incrementar a quantidade de um item no carrinho
+
+// Function add e remove no carrinho 
 function incrementQuantity(productName) {
     const cartItem = cart.find(item => item.name === productName);
     if (cartItem) {
@@ -197,12 +253,11 @@ function incrementQuantity(productName) {
     updateCartUI();
 }
 
-// Função para decrementar a quantidade de um item no carrinho
 function decrementQuantity(productName) {
     const cartItem = cart.find(item => item.name === productName);
     if (cartItem) {
         cartItem.quantity--;
-        // Se a quantidade chegar a 0, remover o item do carrinho
+      
         if (cartItem.quantity === 0) {
             cart = cart.filter(item => item.name !== productName);
         }
@@ -215,12 +270,16 @@ document.getElementById('confirm-order').addEventListener('click', () => {
     document.getElementById('order-confirm-modal').classList.remove('hidden');
 });
 
+
 document.getElementById('close-modal').addEventListener('click', () => {
     document.getElementById('order-confirm-modal').classList.add('hidden');
 });
+
+
 
 // Iniciar novo pedido
 document.getElementById('new-order').addEventListener('click', () => {
     cart = [];
     updateCartUI();
+
 });
