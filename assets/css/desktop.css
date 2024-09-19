@@ -12,26 +12,17 @@
     gap: 10px;
   }
 
-  .techs span {
-    width: 100%;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 16px;
-  }
-
   .btns {
     gap: 16px;
     margin-top: 15px;
   }
 
   .btns a {
-    width: 100%;
-    transition: 0.5s;
+    padding: 5px 0;
+    justify-content:  center;
   }
 
 
-  .btns a:hover {
-    opacity: 0.5;
-  }
+ 
 
 }
