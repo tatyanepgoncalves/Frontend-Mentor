@@ -9,43 +9,46 @@
 <body>
 
   <main id="app">
-
-    <div class="left-side">
+    <section class="text">
       <h1>Learn to code by watching others</h1>
-      <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
-    </div>
+      <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+    </section>
 
-    <div class="right-side">
-      <p class="btn-try">
-        Try it free 7 days 
-        <span>then $20/mo. thereafter</span>
-      </p>
+    <section class="items">
+      <div class="box-text">
+         <strong>Try it free 7 days</strong> then $20/mo. thereafter
+      </div>
 
-
-      <form action="#" onsubmit="return validarForm()"> 
-        <div class="form-input">
-          <input type="text" id="f-name" placeholder="First Name">
-          <p class="error"></p>
-          <input type="text"  id="l-name"  placeholder="Last Name">
-          <p class="error"></p>
-          <input type="email" id="email" placeholder="Email Address">
-          <p class="error"></p>
-          <input type="password" id="password" placeholder="Password">
-          <p class="error"></p>
+      <form>
+        <div class="input-box">
+          <label for="first-name">First Name</label>
+          <input onkeydown="handleStartTyping()" type="text" name="first-name" id="first-name" required>
+          <span class="spinner"></span>
         </div>
+        <div class="input-box"></div>
+        
+        <label for="last-name">Last Name</label>
+        <input type="text" name="last-name" id="last-name" required>
+        
+        <label for="email-address">Email Address</label>
+        <input type="email" name="email-address" id="email-address" required>
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
 
-        <div class="btn-text">
-          <button type="button" onclick="validarForm()" disabled>Claim your free trial </button>
-          <p>
-            By clicking the button, you are agreeing to our 
-            <span>Terms and Services</span>
-          </p>
-        </div>  
+        <input type="submit" class="btn" value="CLAIM YOUR FREE TRIAL">
+
+        <p>By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
       </form>
-    </div>
+    </section>
 
+    <footer>
+      Challenge by <strong>Frontend Mentor</strong> . Coded by <strong>Tatyane Gonçalves</strong>.
+    </footer>
   </main>
- 
-  <script src="assets/js/script.js"></script>
+
+  
+
+ <script src="assets/js/script.js"></script>
 </body>
 </html>
