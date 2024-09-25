@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="asets/sass/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sass/style.css">
+  <link rel="shortcut icon" href="assets/shared/logo.svg" type="image/x-icon">
   <title>Space Website</title>
 </head>
 <body>
@@ -13,7 +17,14 @@
         <img src="assets/shared/logo.svg" alt="Logo Space">
       </a>
 
-      <nav>
+      <div class="icon-menu" onclick="openMenu()">
+        <img src="assets/shared/icon-hamburger.svg" alt="Icon Hamburger">
+      </div>
+
+      <nav id="menu">
+        <div class="icon-close" onclick="closeMenu()">
+          <img src="assets/shared/icon-close.svg" alt="Icon close">
+        </div>
         <ul>
           <li><a href="#">00 <span>Home</span></a></li>
           <li><a href="#">01 <span>Destinations</span></a></li>
@@ -43,9 +54,12 @@
   </main>
 
   <footer>
-
-    <p>Desenvolvido por <a href="#">Tatyane Gonçalves</a></p>
+    <div class="container">
+      <p>Desenvolvido por <a href="#">Tatyane Gonçalves</a></p>
+    </div>
 
   </footer>
+
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
