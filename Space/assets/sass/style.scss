@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
+
 
 $black: #0b0d17;
 $bluee: #d0d6f9;
@@ -7,10 +7,91 @@ $bluee: #d0d6f9;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Barlow', sans-serif;
+  list-style: none; 
+  text-decoration: none;
 }
 
 body {
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  line-height: 32px;
+  background-image: url("../home/background-home-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 327px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 24px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+}
+
+nav {
+  position: absolute;
+  right: -24px;
+  top: -24px;
+  width: 0;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 33.95px 32px 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: width 0.5s;
+
+  a {
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 2.7px;
+    font-weight: bold;
+    font-family: "Barlow Condensed", system-ui;
+    color: #fff;
+    
+    span {
+      font-family: "Barlow Condensed", system-ui;
+      font-weight: normal;
+    }
+  }
+}
+
+nav.open {
+  visibility: visible;
+  width: 60%;
+}
+
+.icon-close {
+  margin-left: 110px;
+}
+
+ul {
+  padding-top: 64.95px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+nav {
+  a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -4px;
+    width: 2px;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  a:hover::after {
+    opacity: 1;
+  }
 }
