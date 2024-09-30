@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/home/background-home-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  max-height: 100vh;
+}
+
+#app {
+  max-width: 327px;
+  margin: 0 auto;
+  padding: 24px 0;
+  border: 1px solid #fff;
+}
+
+
+#menu-mobile.open {
+  width: 50%;
+  display: block;
+  transition: all 0.5s;
+}
+
+@media (width >= 768px) {
+  body {
+    background-image: url("./assets/home/background-home-tablet.jpg");
+  }
+
+  #app {
+    max-width: 729px;
+    margin: 0 auto;
+  }
+}
+
+@media (width > 1024px) {
+  body {
+    background-image: url("./assets/home/background-home-desktop.jpg");
+  }
+
+  #app {
+    max-width: 1364px;
+    margin: 38px auto 0;
+  }
+}
