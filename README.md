@@ -11,6 +11,7 @@ Each project developed has its own functionalities and instructions.
 - HTML
 - CSS
 - JavaScript
+- Tailwind
 
 ## Authors 👷
 - Challenge created by [Frontend Mentor](https://www.frontendmentor.io). 
