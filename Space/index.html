@@ -1,65 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/sass/style.css">
-  <link rel="shortcut icon" href="assets/shared/logo.svg" type="image/x-icon">
-  <title>Space Website</title>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <a href="#" class="logo">
-        <img src="assets/shared/logo.svg" alt="Logo Space">
-      </a>
-
-      <div class="icon-menu" onclick="openMenu()">
-        <img src="assets/shared/icon-hamburger.svg" alt="Icon Hamburger">
-      </div>
-
-      <nav id="menu">
-        <div class="icon-close" onclick="closeMenu()">
-          <img src="assets/shared/icon-close.svg" alt="Icon close">
-        </div>
-        <ul>
-          <li><a href="#">00 <span>Home</span></a></li>
-          <li><a href="#">01 <span>Destinations</span></a></li>
-          <li><a href="#">02 <span>Crew</span></a></li>
-          <li><a href="#">03 <span>Technology</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-      <section id="home" class="home">
-        <div class="left-side">
-          <span>SO, YOU WANT TO TRAVEL TO</span>
-          <h1>SPACE</h1>
-          <p>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="src/assets/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>Space Tourism</title>
+  </head>
+  <body class="antialiased">
+    <div id="app" class="flex flex-col gap-12">
+      <header class="flex items-center justify-between">
+        <div>
+          <img
+            src="src/assets/shared/logo.svg"
+            class="max-w-12"
+            alt="Logo Space"
+          />
         </div>
 
-        <div class="circle-box">
-          <div class="circle">
-            <h2>Explore</h2>
+        <button id="open-menu" onclick="openMenu()" class="md:hidden">
+          <img
+            src="src/assets/shared/icon-hamburger.svg"
+            alt="Icon Hamburger"
+          />
+        </button>
+
+        <nav class="hidden md:flex">
+          <ul class="flex items-center gap-10">
+            <li>
+              <a href="index.html" class="lg:flex items-center gap-3 font-secondary text-white uppercase md:text-sm font-bold md:tracking-[2.36px] lg:text-base lg:tracking-[2.7px]">
+                  <p class="md:hidden lg:block">00</p>
+                  <p class="font-normal">Home</p>
+                </a>
+            </li>
+            <li>
+              <a href="destination.html" class="lg:flex items-center gap-3 font-secondary text-white uppercase md:text-sm font-bold md:tracking-[2.36px] lg:text-base lg:tracking-[2.7px]">
+                <p class="md:hidden lg:block">01</p>
+                <p class="font-normal">Destination</p>
+                </a>
+            </li>
+            <li>
+              <a href="crew.html" class="lg:flex items-center gap-3 font-secondary text-white uppercase md:text-sm font-bold md:tracking-[2.36px] lg:text-base lg:tracking-[2.7px]">
+                <p class="md:hidden lg:block">02</p>
+                <p class="font-normal">Crew</p>
+                </a>
+            </li>
+            <li>
+              <a href="technology.html" class="lg:flex items-center gap-3 font-secondary text-white uppercase md:text-sm font-bold md:tracking-[2.36px] lg:text-base lg:tracking-[2.7px]">
+                <p class="md:hidden lg:block">03</p>
+                <p class="font-normal">Technology</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav id="menu-mobile" class="bg-white/35 h-full w-0 absolute right-0 top-0 hidden duration-1000 transition-all z-10">
+          <button class="absolute right-7 top-8" id="close-menu" onclick="closeMenu()">
+            <img
+              src="src/assets/shared/icon-close.svg"
+              class="max-w-5"
+              alt="icon Close"
+            />
+          </button>
+          <ul class="absolute top-32 left-8 flex flex-col gap-8">
+            <li>
+              <a href="index.html" class="flex items-center gap-3">
+                <p
+                  class="text-white uppercase text-base font-bold tracking-[2.7px] font-secondary"
+                >
+                  00
+                </p>
+                <p
+                  class="text-white uppercase text-base tracking-[2.7px] font-secondary"
+                >
+                  Home
+                </p>
+              </a>
+            </li>
+
+            <li>
+              <a href="destination.html" class="flex items-center gap-3">
+                <p
+                  class="text-white uppercase text-base font-bold tracking-[2.7px] font-secondary"
+                >
+                  01
+                </p>
+                <p
+                  class="text-white uppercase text-base tracking-[2.7px] font-secondary"
+                >
+                  Destination
+                </p>
+              </a>
+            </li>
+
+            <li>
+              <a href="crew.html" class="flex items-center gap-3">
+                <p
+                  class="text-white uppercase text-base font-bold tracking-[2.7px] font-secondary"
+                >
+                  02
+                </p>
+                <p
+                  class="text-white uppercase text-base tracking-[2.7px] font-secondary"
+                >
+                  Crew
+                </p>
+              </a>
+            </li>
+
+            <li>
+              <a href="technology.html" class="flex items-center gap-3">
+                <p
+                  class="text-white uppercase text-base font-bold tracking-[2.7px] font-secondary"
+                >
+                  03
+                </p>
+                <p
+                  class="text-white uppercase text-base tracking-[2.7px] font-secondary"
+                >
+                  Technology
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="flex flex-col items-center justify-center gap-20 
+      md:gap-[156px] md:w-[450px] md:m-auto md:mt-[106px] border
+      lg:flex-row  lg:w-[1112px] lg:justify-between
+      ">
+        <section class="text-center flex flex-col gap-4
+          lg:gap-[23px] lg:text-left lg:w-[450px] border border-white
+        ">
+          <span class="text-blue tracking-[2.7px] text-base font-secondary
+          md:tracking-[3.38px] md:text-xl 
+          lg:tracking-[4.72px] lg:text-[28px]
+          ">SO, YOU WANT TO TRAVEL TO</span>
+          <h1 class="text-white font-primary text-[80px] leading-[100px] uppercase tracking-[2.7px] 
+          md:text-[150px] md:leading-[150px]">Space</h1>
+          <p class="text-blue font-tertiary text-[15px] leading-[25px] 
+          md:text-base md:leading-7 
+          lg:text-lg lg:leading-8
+          ">
+            Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!
+          </p>
+        </section>
+        <section class="flex items-center justify-center cursor-pointer bg-white/35 hover:w-[250px] hover:h-[250px] rounded-full md:hover:w-[350px] md:hover:h-[350px] lg:hover:w-[450px] lg:hover:h-[450px]">
+          <div class="bg-white w-[150px] h-[150px] md:w-[242px] md:h-[242px] rounded-full flex items-center justify-center
+            lg:w-[274px] lg:h-[274px]
+          ">
+            <h2 class="font-primary text-black uppercase leading-tight text-xl
+            lg:text-[32px] lg:tracking-[2px]
+            ">Explore</h2>
           </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>Desenvolvido por <a href="#">Tatyane Gonçalves</a></p>
+        </section>
+      </main>
     </div>
 
-  </footer>
+    <!-- end app -->
 
-  <script src="assets/js/index.js"></script>
-</body>
+    <script src="src/assets/js/index.js"></script>
+  </body>
 </html>
